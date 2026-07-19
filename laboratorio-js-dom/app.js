@@ -46,14 +46,24 @@ function agregarEstudiante() {
         mostrarMensaje("Estudiante actualizado correctamente.", "success");
       }
     });
+    
 
   } else {
+
+    Swal.fire({
+      icon: "success",
+      title: "Estudiante registrado",
+      text: "Correctamente."
+    });
+
     cursos.push(estudiante);
     actualizarTotal();
     mostrarMensaje("Estudiante agregado correctamente.", "success");
-  }
-  agregarFilaTabla(cursos);
+    agregarFilaTabla(cursos);
   limpiarFormulario();
+  }
+
+  
 
 }
 
@@ -274,8 +284,10 @@ function filtrarCarrera(){
     Swal.fire({
       icon: "info",
       title: "Sin filtro",
-      text: "Usted esta filtrado con todas las carreras"
+      text: "Usted esta filtrado con todas las carreras (tabla completa)"
     });
+    agregarFilaTabla(cursos);
+
   }else{
 
     for (let i = 0; i < cursos.length; i++) {
@@ -285,7 +297,7 @@ function filtrarCarrera(){
             encontrados.push(estudiante);
         }
     }
-    
+    agregarFilaTabla(encontrados);
 }
-agregarFilaTabla(encontrados);
+
 }
