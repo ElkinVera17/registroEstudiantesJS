@@ -39,6 +39,13 @@ Opción 1: Doble clic en el archivo index.html
 Opción 2: Usar una extensión como "Live Server" en VS Code
 Opción 3: Arrastrar el archivo a una ventana del navegador
 ### Estructura del Proyecto
+```
+└── 📁 laboratorio-js-dom
+    ├── 📕 ElkinVera_29535_ManipulaciónDeDOM.pdf
+    ├── 📝 README.md
+    ├── 📄 app.js
+    └── 🌐 index.html
+```
 ### Autor
 Elkin Alejandro Vera Gorozabel
 GitHub: @ElkinVera17
