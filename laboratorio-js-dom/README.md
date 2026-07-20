@@ -1,72 +1,58 @@
-1. Botón para abrir el JSON
+# 📚 Sistema de Registro de Estudiantes
 
-Coloque este botón debajo de la tabla:
+Aplicación web para la gestión de estudiantes con funcionalidades CRUD (Crear, Leer, Actualizar, Eliminar) utilizando JavaScript puro y manipulación del DOM.
 
-<button id="btnVerJSON" class="btn btn-dark mt-3">
-  Ver JSON de estudiantes
-</button>
-2. Modal Bootstrap para mostrar el JSON
+## 📝 Descripción
 
-Coloque este modal antes de cerrar el body:
+Este proyecto consiste en un sistema de registro de estudiantes que permite:
+- Agregar nuevos estudiantes con nombre, carrera y semestre
+- Visualizar la lista de estudiantes en una tabla dinámica
+- Ver información detallada en formato JSON (individual y general)
+- Editar y eliminar estudiantes con confirmación
+- Buscar estudiantes por nombre, carrera o semestre
+- Filtrar estudiantes por carrera
+- Mantener un contador actualizado del total de estudiantes
 
-<div class="modal fade" id="modalJSON" tabindex="-1" aria-labelledby="modalJSONLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
+Los datos se almacenan temporalmente en un arreglo global durante la sesión del navegador.
 
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalJSONLabel">JSON de estudiantes registrados</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
+## 🛠️ Tecnologías Utilizadas
 
-      <div class="modal-body">
-        <pre id="contenidoJSON" class="bg-dark text-white p-3 rounded"></pre>
-      </div>
+- **HTML5**: Estructura de la página
+- **CSS3 + Bootstrap 5.3.3**: Estilos y diseño responsivo
+- **JavaScript (ES6+)**: Lógica de la aplicación y manipulación del DOM
+- **SweetAlert2**: Alertas y modales de confirmación mejorados
+- **Bootstrap Modal**: Visualización de datos en formato JSON
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-      </div>
+## 🚀 Ejecución de la Aplicación
 
-    </div>
-  </div>
-</div>
-3. Agregar el script de Bootstrap
+### Requisitos previos
+- Un navegador web moderno (Chrome, Firefox, Edge, Safari)
 
-Antes de app.js, coloque el script de Bootstrap. Debe quedar así:
+### Pasos para ejecutar
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="app.js"></script>
-
-Esto es necesario para que el modal funcione.
-
-4. JavaScript mínimo
-
-En app.js, agregue un arreglo global:
-
-const estudiantesRegistrados = [];
-
-Cuando agregue un estudiante correctamente, guárdelo en ese arreglo:
-
-estudiantesRegistrados.push(estudiante);
-
-Luego capture el botón:
-
-const btnVerJSON = document.getElementById("btnVerJSON");
-
-btnVerJSON.addEventListener("click", mostrarModalJSON);
-
-Y cree esta función:
-
-function mostrarModalJSON() {
-  const contenidoJSON = document.getElementById("contenidoJSON");
-
-  if (estudiantesRegistrados.length === 0) {
-    contenidoJSON.textContent = "No existen estudiantes registrados.";
-  } else {
-    contenidoJSON.textContent = JSON.stringify(estudiantesRegistrados, null, 2);
-  }
-
-  const modal = new bootstrap.Modal(document.getElementById("modalJSON"));
-  modal.show();
-}
-
-Con eso queda una segunda parte básica: el estudiante registra datos, se guardan en un arreglo y luego se muestra el JSON dentro de un modal Bootstrap. Es fácil de explicar y conecta DOM, eventos, arreglos, objetos y JSON.stringify().
+1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/ElkinVera17/registroEstudiantesJS.git
+2. **Navegar al directorio del proyecto**
+3. **Abrir el archivo index.html en el navegador**
+Opción 1: Doble clic en el archivo index.html
+Opción 2: Usar una extensión como "Live Server" en VS Code
+Opción 3: Arrastrar el archivo a una ventana del navegador
+### Estructura del Proyecto
+### Autor
+Elkin Alejandro Vera Gorozabel
+GitHub: @ElkinVera17
+### Funcionalidades Principales
+Función	Descripción
+➕ Agregar	Registra un nuevo estudiante en el arreglo y la tabla
+✏️ Editar	Carga los datos del estudiante en el formulario para modificación
+🗑️ Eliminar	Elimina un estudiante con confirmación previa
+🔍 Buscar	Filtra estudiantes por coincidencia de texto
+📋 Filtrar	Muestra estudiantes según la carrera seleccionada
+📊 JSON	Visualiza datos en formato JSON en un modal
+### Mejoras Futuras
+- Persistencia de datos con localStorage
+- Exportar datos a archivo CSV/Excel
+- Validación de campos en tiempo real
+- Paginación para grandes volúmenes de datos
+- Temas oscuro/claro
